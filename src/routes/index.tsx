@@ -30,7 +30,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [show, setShow] = useState(false);
-  const [err, setErr] = useState<{ email?: string; code?: string }>({});
+  const [err, setErr] = useState<{ email?: string | undefined; code?: string | undefined }>({});
   const [loading, setLoading] = useState(false);
 
   const submit = (e: FormEvent) => {
@@ -118,7 +118,7 @@ function Login() {
   );
 }
 
-function Field({ label, error, icon: Icon, children }: { label: string; error?: string; icon: typeof Mail; children: React.ReactNode }) {
+function Field({ label, error, icon: Icon, children }: { label: string; error?: string | undefined; icon: typeof Mail; children: React.ReactNode }) {
   return (
     <label className="mt-5 block">
       <span className="text-sm font-medium text-primary-foreground/80">{label}</span>
