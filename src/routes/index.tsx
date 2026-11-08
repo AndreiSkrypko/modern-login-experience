@@ -131,7 +131,7 @@ function FalconMark({ className }: { className?: string }) {
       <path
         fill="url(#falcon-brown)"
         fillRule="evenodd"
-        d="M10 4 L46 4 L34 18 L22 18 L21 26 L36 26 C43 26 46 29 45 33 L38 35 L34 38 L19 38 L17 50 L2 60 C6 44 6 22 10 4 Z M38.6 30.4 a1.7 1.7 0 1 0 0.01 0 Z"
+        d="M10 4 L47 5 L33 18 L22 18 L21 26 L34 26 C42 26 47 28 47 32 L39 34 L44 36 L33 40 L19 40 L17 50 L2 60 C5 44 5 20 10 4 Z M39 30 a1.7 1.7 0 1 0 0.01 0 Z"
       />
     </svg>
   );
