@@ -48,12 +48,12 @@ function Login() {
     <main className="relative min-h-screen overflow-hidden bg-ink font-sans text-primary-foreground">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
       <div className="pointer-events-none absolute -left-40 -top-40 h-[520px] w-[520px] rounded-full bg-ember opacity-30 blur-[120px] animate-orb" />
-      <div className="pointer-events-none absolute -bottom-48 right-0 h-[560px] w-[560px] rounded-full bg-magenta opacity-25 blur-[140px] animate-orb [animation-delay:-6s]" />
+      <div className="pointer-events-none absolute -bottom-48 right-0 h-[560px] w-[560px] rounded-full bg-cocoa opacity-45 blur-[140px] animate-orb [animation-delay:-6s]" />
 
       <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-6 py-10 lg:grid-cols-[1.2fr_1fr] lg:px-12">
         <section className="flex flex-col gap-10">
           <div className="flex items-center gap-3 animate-rise">
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-ember-gradient font-display text-2xl font-bold">F</div>
+            <FalconMark className="h-14 w-auto" />
             <div className="leading-tight">
               <div className="font-display text-xl font-bold tracking-wide">FALCON</div>
               <div className="text-xs tracking-[0.25em] text-primary-foreground/60">CONTENT FACTORY</div>
@@ -106,7 +106,7 @@ function Login() {
                 </button>
               </Field>
 
-              <button disabled={loading} className="group relative mt-8 flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-ember-gradient py-4 font-display text-lg uppercase tracking-wider shadow-[0_10px_40px_-10px_var(--ember)] transition-all hover:shadow-[0_15px_50px_-8px_var(--magenta)] active:scale-[0.98] disabled:opacity-80">
+              <button disabled={loading} className="group relative mt-8 flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-ember-gradient py-4 font-display text-lg uppercase tracking-wider shadow-[0_10px_40px_-10px_var(--ember)] transition-all hover:shadow-[0_15px_50px_-8px_var(--cocoa)] active:scale-[0.98] disabled:opacity-80">
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary-foreground/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Войти <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" /></>}
               </button>
@@ -115,6 +115,25 @@ function Login() {
         </section>
       </div>
     </main>
+  );
+}
+
+function FalconMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 64" className={className} role="img" aria-label="Falcon">
+      <defs>
+        <linearGradient id="falcon-brown" x1="0.1" y1="0" x2="0.6" y2="1">
+          <stop offset="0%" stopColor="var(--ember-glow)" />
+          <stop offset="52%" stopColor="var(--ember)" />
+          <stop offset="100%" stopColor="var(--cocoa)" />
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#falcon-brown)"
+        fillRule="evenodd"
+        d="M10 4 L47 5 L33 18 L22 18 L21 26 L34 26 C42 26 47 28 47 32 L39 34 L44 36 L33 40 L19 40 L17 50 L2 60 C5 44 5 20 10 4 Z M39 30 a1.7 1.7 0 1 0 0.01 0 Z"
+      />
+    </svg>
   );
 }
 

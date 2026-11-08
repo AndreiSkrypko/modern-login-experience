@@ -65,7 +65,7 @@
   --color-ink: var(--ink);
   --color-ember: var(--ember);
   --color-ember-glow: var(--ember-glow);
-  --color-magenta: var(--magenta);
+  --color-cocoa: var(--cocoa);
   --color-glass: var(--glass);
   --color-glass-border: var(--glass-border);
   --font-display: "Oswald", sans-serif;
@@ -82,10 +82,10 @@
 
 :root {
   --radius: 1rem;
-  --ink: oklch(0.17 0.01 60);
-  --ember: oklch(0.72 0.18 50);
-  --ember-glow: oklch(0.8 0.16 70);
-  --magenta: oklch(0.62 0.24 350);
+  --ink: oklch(0.2 0.026 52);
+  --ember: oklch(0.68 0.11 55);
+  --ember-glow: oklch(0.8 0.09 72);
+  --cocoa: oklch(0.44 0.09 42);
   --glass: oklch(1 0 0 / 6%);
   --glass-border: oklch(1 0 0 / 12%);
   --background: oklch(1 0 0);
@@ -95,7 +95,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
   --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
+  --primary-foreground: oklch(0.97 0.012 78);
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.968 0.007 247.896);
@@ -176,7 +176,7 @@
 @utility animate-rise { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; }
 @utility animate-spin-slow { animation: spin-slow 6s linear infinite; }
 @utility text-shine {
-  background: linear-gradient(90deg, var(--ember), var(--ember-glow), var(--magenta), var(--ember));
+  background: linear-gradient(90deg, var(--ember), var(--ember-glow), var(--cocoa), var(--ember));
   background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
   animation: shine 4s linear infinite;
 }
@@ -185,5 +185,5 @@
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
 }
-@utility bg-ember-gradient { background: linear-gradient(135deg, var(--ember), var(--magenta)); }
-@utility conic-border { background: conic-gradient(from 0deg, transparent 0 70%, var(--ember) 80%, var(--magenta) 90%, transparent 100%); }
+@utility bg-ember-gradient { background: linear-gradient(135deg, var(--ember), var(--cocoa)); }
+@utility conic-border { background: conic-gradient(from 0deg, transparent 0 70%, var(--ember) 80%, var(--cocoa) 90%, transparent 100%); }
