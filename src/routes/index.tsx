@@ -45,71 +45,108 @@ function Login() {
   };
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-ink font-sans text-primary-foreground">
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
-      <div className="pointer-events-none absolute -left-40 -top-40 h-[520px] w-[520px] rounded-full bg-ember opacity-30 blur-[120px] animate-orb" />
-      <div className="pointer-events-none absolute -bottom-48 right-0 h-[560px] w-[560px] rounded-full bg-cocoa opacity-45 blur-[140px] animate-orb [animation-delay:-6s]" />
+    <main className="relative min-h-screen overflow-hidden bg-background font-sans text-foreground">
+      {/* paper texture, soft colour washes, poster frame */}
+      <div className="pointer-events-none absolute inset-0 bg-dots opacity-60" />
+      <div className="pointer-events-none absolute -left-40 -top-40 h-[520px] w-[520px] rounded-full bg-rust/10 blur-[120px] animate-orb" />
+      <div className="pointer-events-none absolute -bottom-48 right-0 h-[560px] w-[560px] rounded-full bg-olive/10 blur-[140px] animate-orb [animation-delay:-6s]" />
+      <div className="pointer-events-none absolute inset-3 rounded-3xl border border-ink/10 sm:inset-5" />
 
-      <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-6 py-10 lg:grid-cols-[1.2fr_1fr] lg:px-12">
-        <section className="flex flex-col gap-10">
-          <div className="flex items-center gap-3 animate-rise">
-            <FalconMark className="h-14 w-auto" />
+      <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-6 py-12 lg:grid-cols-[1.15fr_1fr] lg:px-14">
+        <section className="flex flex-col gap-9">
+          <div className="flex items-center gap-4 animate-rise">
+            <div className="relative h-16 w-16 shrink-0">
+              <div className="absolute inset-0 rounded-2xl border border-rust/45" />
+              <div className="absolute inset-[3px] overflow-hidden rounded-[13px] border border-ink/10 bg-gradient-to-b from-card to-paper-deep shadow-[0_10px_25px_-12px_rgba(70,45,25,0.45)]">
+                <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-card/70 to-transparent animate-sweep" />
+              </div>
+              <div className="relative flex h-full items-center justify-center">
+                <FalconMark className="h-9 w-auto drop-shadow-[0_2px_2px_rgba(70,45,25,0.3)]" />
+              </div>
+            </div>
             <div className="leading-tight">
-              <div className="font-display text-xl font-bold tracking-wide">FALCON</div>
-              <div className="text-xs tracking-[0.25em] text-primary-foreground/60">CONTENT FACTORY</div>
+              <div className="font-display text-2xl font-semibold tracking-[0.14em]">FALCON</div>
+              <div className="mt-1 flex items-center gap-2 text-[10px] font-semibold tracking-[0.34em] text-foreground/55">
+                <span className="h-px w-5 bg-rust/60" />
+                CONTENT FACTORY
+              </div>
             </div>
           </div>
 
           <div>
-            <h1 className="font-display text-5xl font-bold uppercase leading-[0.95] sm:text-7xl animate-rise [animation-delay:.1s]">
-              AI-контент<br /><span className="text-shine">машина</span>
+            <div className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-rust animate-rise [animation-delay:.05s]">
+              <span className="h-px w-10 bg-rust/70" />
+              Внутренняя платформа группы
+            </div>
+            <h1 className="mt-4 font-display text-5xl font-bold uppercase leading-[0.95] tracking-tight sm:text-7xl animate-rise [animation-delay:.1s]">
+              AI-контент<br />
+              <span className="relative inline-block text-rust">
+                машина
+                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 9" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2 7 Q 100 -2 198 6" fill="none" stroke="var(--gold)" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+              </span>
             </h1>
-            <p className="mt-6 max-w-lg text-lg text-primary-foreground/70 animate-rise [animation-delay:.2s]">
+            <p className="mt-7 max-w-lg text-lg leading-relaxed text-foreground/70 animate-rise [animation-delay:.2s]">
               8 AI-отделов, которые превращают идеи в посты, охваты и заявки — для компаний группы Falcon.
             </p>
           </div>
 
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-4 gap-2.5">
             {depts.map(({ icon: Icon, label }, i) => (
               <div
                 key={label}
-                style={{ animationDelay: `${0.3 + i * 0.07}s` }}
-                className="group flex flex-col items-center gap-2 rounded-2xl border border-glass-border bg-glass p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-ember hover:bg-ember/10 animate-rise"
+                style={{ animationDelay: `${0.3 + i * 0.06}s` }}
+                className="group relative rounded-xl border border-line bg-card/80 px-3 pb-3.5 pt-4 shadow-[0_1px_0_rgba(70,45,25,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-rust/50 hover:shadow-[0_14px_28px_-16px_rgba(150,70,40,0.45)] animate-rise"
               >
-                <Icon className="h-5 w-5 text-ember-glow transition-transform duration-300 group-hover:scale-125" />
-                <span className="font-display text-xs uppercase tracking-wider text-primary-foreground/80">{label}</span>
+                <span className="absolute right-2.5 top-2 font-display text-[10px] font-semibold tracking-widest text-foreground/30 transition-colors group-hover:text-rust">
+                  0{i + 1}
+                </span>
+                <Icon className="h-[18px] w-[18px] text-rust transition-transform duration-300 group-hover:scale-110" strokeWidth={1.8} />
+                <span className="mt-2.5 block font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground/80">{label}</span>
               </div>
             ))}
           </div>
         </section>
 
         <section className="animate-rise [animation-delay:.25s]">
-          <div className="relative mx-auto max-w-md overflow-hidden rounded-3xl p-px">
-            <div className="absolute -inset-[100%] conic-border animate-spin-slow" />
-            <form onSubmit={submit} noValidate className="relative rounded-3xl bg-ink/95 p-8 backdrop-blur-xl sm:p-10">
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-ember">Внутренняя платформа</p>
-              <h2 className="mt-2 font-display text-4xl font-bold uppercase">Вход для команды</h2>
+          <div className="relative mx-auto max-w-md">
+            <div className="absolute -inset-6 rounded-[2.5rem] bg-rust/8 blur-2xl" />
+            <form onSubmit={submit} noValidate className="relative rounded-3xl border border-line bg-card p-8 shadow-[0_30px_60px_-30px_rgba(70,45,25,0.35)] sm:p-10">
+              <div className="absolute inset-x-10 top-0 h-[3px] rounded-b bg-gradient-to-r from-transparent via-rust to-transparent" />
 
-              <div className="mt-6 flex gap-3 rounded-2xl border border-glass-border bg-glass p-4 text-sm text-primary-foreground/70">
-                <ShieldCheck className="h-5 w-5 shrink-0 text-ember-glow" />
-                Временный вход до подключения корпоративного SSO. Доступ — только сотрудникам по коду команды.
+              <div className="flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-rust/40 bg-rust/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.28em] text-rust">
+                  Вход <ArrowRight className="h-3 w-3" />
+                </span>
+                <FalconMark className="h-7 w-auto opacity-80" />
+              </div>
+
+              <h2 className="mt-5 font-display text-3xl font-bold uppercase tracking-wide">Для команды</h2>
+              <p className="mt-1.5 text-sm text-foreground/60">Рабочий email и код доступа команды</p>
+
+              <div className="mt-6 flex gap-3 rounded-xl border border-olive/30 bg-olive/5 p-3.5 text-[13px] leading-snug text-foreground/70">
+                <ShieldCheck className="h-[18px] w-[18px] shrink-0 text-olive" strokeWidth={1.8} />
+                Временный вход до подключения корпоративного SSO. Доступ — только сотрудникам.
               </div>
 
               <Field label="Рабочий email" error={err.email} icon={Mail}>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@falcon.com" className="w-full bg-transparent py-3.5 outline-none placeholder:text-primary-foreground/30" />
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@falcon.com" className="w-full bg-transparent py-3 outline-none placeholder:text-foreground/35" />
               </Field>
 
               <Field label="Код доступа команды" error={err.code} icon={KeyRound}>
-                <input type={show ? "text" : "password"} value={code} onChange={(e) => setCode(e.target.value)} placeholder="••••••" className="w-full bg-transparent py-3.5 outline-none placeholder:text-primary-foreground/30" />
-                <button type="button" onClick={() => setShow(!show)} aria-label="Показать код" className="text-primary-foreground/50 hover:text-ember-glow">
+                <input type={show ? "text" : "password"} value={code} onChange={(e) => setCode(e.target.value)} placeholder="••••••" className="w-full bg-transparent py-3 outline-none placeholder:text-foreground/35" />
+                <button type="button" onClick={() => setShow(!show)} aria-label="Показать код" className="text-foreground/45 transition-colors hover:text-rust">
                   {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
               </Field>
 
-              <button disabled={loading} className="group relative mt-8 flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-ember-gradient py-4 font-display text-lg uppercase tracking-wider shadow-[0_10px_40px_-10px_var(--ember)] transition-all hover:shadow-[0_15px_50px_-8px_var(--cocoa)] active:scale-[0.98] disabled:opacity-80">
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary-foreground/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+              <button disabled={loading} className="group relative mt-7 flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-ember-gradient py-4 font-display text-base font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-[0_14px_30px_-12px_var(--rust)] transition-all hover:shadow-[0_18px_36px_-12px_var(--rust-deep)] active:scale-[0.98] disabled:opacity-80">
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary-foreground/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <>Войти <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" /></>}
               </button>
+
+              <p className="mt-5 text-center text-[11px] tracking-wide text-foreground/45">Falcon Group · только для сотрудников</p>
             </form>
           </div>
         </section>
@@ -122,14 +159,14 @@ function FalconMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 48 64" className={className} role="img" aria-label="Falcon">
       <defs>
-        <linearGradient id="falcon-brown" x1="0.1" y1="0" x2="0.6" y2="1">
-          <stop offset="0%" stopColor="var(--ember-glow)" />
-          <stop offset="52%" stopColor="var(--ember)" />
-          <stop offset="100%" stopColor="var(--cocoa)" />
+        <linearGradient id="falcon-brand" x1="0.1" y1="0" x2="0.65" y2="1">
+          <stop offset="0%" stopColor="var(--rust)" />
+          <stop offset="55%" stopColor="var(--rust-deep)" />
+          <stop offset="100%" stopColor="var(--ink)" />
         </linearGradient>
       </defs>
       <path
-        fill="url(#falcon-brown)"
+        fill="url(#falcon-brand)"
         fillRule="evenodd"
         d="M10 4 L47 5 L33 18 L22 18 L21 26 L34 26 C42 26 47 28 47 32 L39 34 L44 36 L33 40 L19 40 L17 50 L2 60 C5 44 5 20 10 4 Z M39 30 a1.7 1.7 0 1 0 0.01 0 Z"
       />
@@ -140,12 +177,12 @@ function FalconMark({ className }: { className?: string }) {
 function Field({ label, error, icon: Icon, children }: { label: string; error?: string | undefined; icon: typeof Mail; children: React.ReactNode }) {
   return (
     <label className="mt-5 block">
-      <span className="text-sm font-medium text-primary-foreground/80">{label}</span>
-      <div className={`mt-2 flex items-center gap-3 rounded-2xl border bg-glass px-4 transition-all focus-within:border-ember focus-within:shadow-[0_0_0_4px_color-mix(in_oklab,var(--ember)_20%,transparent)] ${error ? "border-destructive" : "border-glass-border"}`}>
-        <Icon className="h-4 w-4 shrink-0 text-primary-foreground/50" />
+      <span className="text-[13px] font-semibold text-foreground/75">{label}</span>
+      <div className={`mt-1.5 flex items-center gap-3 rounded-xl border bg-background px-4 transition-all focus-within:border-rust focus-within:shadow-[0_0_0_4px_color-mix(in_oklab,var(--rust)_15%,transparent)] ${error ? "border-destructive" : "border-line"}`}>
+        <Icon className="h-4 w-4 shrink-0 text-foreground/45" strokeWidth={1.8} />
         {children}
       </div>
-      {error && <span className="mt-1.5 block text-xs text-destructive animate-rise">{error}</span>}
+      {error && <span className="mt-1.5 block text-xs font-medium text-destructive animate-rise">{error}</span>}
     </label>
   );
 }
